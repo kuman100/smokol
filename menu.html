@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Smokol</title>
+  <meta name="description" content="Lihat berbagai menu makanan dan minuman lezat di Smokol.">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-red-600">Smokol</h1>
+      <nav class="space-x-6">
+        <a href="index.html" class="hover:text-red-600">Beranda</a>
+        <a href="tentang.html" class="hover:text-red-600">Tentang</a>
+        <a href="menu.html" class="text-red-600 font-semibold">Menu</a>
+        <a href="kontak.html" class="hover:text-red-600">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Header -->
+  <section class="bg-gray-100 py-16 text-center">
+    <h2 class="text-4xl font-bold text-gray-800">Menu Kami</h2>
+    <p class="mt-4 text-gray-600">Pilihan terbaik dari dapur Smokol untuk Anda</p>
+  </section>
+
+  <!-- Menu List -->
+  <section class="py-20 px-4">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+      <!-- Dummy Food Item -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <img src="img/makanan1.jpg" alt="Makanan 1" class="w-full h-48 object-cover">
+        <div class="p-5">
+          <h3 class="font-semibold text-xl mb-1">Nasi Goreng Spesial</h3>
+          <p class="text-sm text-gray-600">Nasi goreng dengan telur, ayam, dan bumbu khas.</p>
+        </div>
+      </div>
+      <!-- Repeat -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <img src="img/makanan2.jpg" alt="Makanan 2" class="w-full h-48 object-cover">
+        <div class="p-5">
+          <h3 class="font-semibold text-xl mb-1">Mie Ayam Jamur</h3>
+          <p class="text-sm text-gray-600">Mie lembut dengan topping ayam jamur gurih.</p>
+        </div>
+      </div>
+      <!-- Add more dummy items -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <img src="img/minuman1.jpg" alt="Minuman" class="w-full h-48 object-cover">
+        <div class="p-5">
+          <h3 class="font-semibold text-xl mb-1">Es Teh Manis</h3>
+          <p class="text-sm text-gray-600">Minuman segar pelepas dahaga favorit semua orang.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 text-center">
+    <p>&copy; 2025 Smokol. Semua Hak Dilindungi.</p>
+  </footer>
+
+</body>
+</html>
