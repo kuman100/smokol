@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+      import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyAk1TrW4UmxyrJVTldVsQggDtzuYCmMOWI",
+        authDomain: "smokol-60028.firebaseapp.com",
+        projectId: "smokol-60028",
+        storageBucket: "smokol-60028.appspot.com",
+        messagingSenderId: "567509469589",
+        appId: "1:567509469589:web:1c21610b990de007984e9c",
+        measurementId: "G-M2ZWRKFKXW"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          window.location.href = "dashboard.html";
+        } else {
+          window.location.href = "login.html";
+        }
+      });
+    </script>
+    <title>Loading...</title>
+  </head>
+  <body>
+    <p>Mengecek login...</p>
+  </body>
+</html>
