@@ -6,13 +6,29 @@
   <title>Menu - Smokol</title>
   <meta name="description" content="Lihat berbagai menu makanan dan minuman lezat di Smokol.">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .menu-card {
+      transition: all 0.3s ease;
+    }
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .category-section {
+      scroll-margin-top: 120px;
+    }
+    .category-nav {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
+    }
+  </style>
 </head>
-<body class="bg-white text-gray-800 font-sans">
+<body class="bg-gray-50 text-gray-800 font-sans">
 
   <!-- Navbar -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
+  <header class="bg-white shadow-md sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 class="text-2xl font-bold text-red-600">Smokol</h1>
+        <h1 class="text-2xl font-bold text-red-600">🍽️ Smokol</h1>
 
         <!-- Tombol hamburger di mobile -->
         <button id="menu-button" class="md:hidden text-gray-700 focus:outline-none">
@@ -25,89 +41,171 @@
 
         <!-- Menu navigasi (hidden di mobile) -->
         <nav id="nav-links" class="hidden md:flex space-x-6">
-        <a href="index.html" class="text-gray-700 hover:text-red-600">Beranda</a>
-        <a href="tentang.html" class="text-gray-700 hover:text-red-600">Tentang</a>
+        <a href="index.html" class="text-gray-700 hover:text-red-600 transition-colors">Beranda</a>
+        <a href="tentang.html" class="text-gray-700 hover:text-red-600 transition-colors">Tentang</a>
         <a href="menu.html" class="text-red-600 font-semibold">Menu</a>
-        <a href="kontak.html" class="text-gray-700 hover:text-red-600">Kontak</a>
+        <a href="kontak.html" class="text-gray-700 hover:text-red-600 transition-colors">Kontak</a>
         </nav>
     </div>
 
     <!-- Menu mobile (muncul ketika tombol ditekan) -->
     <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2">
-        <a href="index.html" class="block text-gray-700 hover:text-red-600">Beranda</a>
-        <a href="tentang.html" class="block text-gray-700 hover:text-red-600">Tentang</a>
+        <a href="index.html" class="block text-gray-700 hover:text-red-600 transition-colors">Beranda</a>
+        <a href="tentang.html" class="block text-gray-700 hover:text-red-600 transition-colors">Tentang</a>
         <a href="menu.html" class="block text-red-600 font-semibold">Menu</a>
-        <a href="kontak.html" class="block text-gray-700 hover:text-red-600">Kontak</a>
+        <a href="kontak.html" class="block text-gray-700 hover:text-red-600 transition-colors">Kontak</a>
     </div>
-    </header>
+  </header>
+
+  <!-- Category Navigation -->
+  <nav class="category-nav sticky top-16 z-40 py-4 border-b">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-center space-x-8 overflow-x-auto">
+        <button data-category="all" class="category-btn px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all bg-red-600 text-white">
+          Semua Menu
+        </button>
+        <button data-category="makanan" class="category-btn px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all text-gray-600 hover:text-red-600">
+          🍽️ Makanan
+        </button>
+        <button data-category="minuman" class="category-btn px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all text-gray-600 hover:text-red-600">
+          🥤 Minuman
+        </button>
+        <button data-category="lainnya" class="category-btn px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all text-gray-600 hover:text-red-600">
+          🍰 Lainnya
+        </button>
+      </div>
+    </div>
+  </nav>
 
   <!-- Header -->
-  <section class="bg-gray-100 py-16 text-center">
-    <h2 class="text-4xl font-bold text-gray-800">Menu Kami</h2>
-    <p class="mt-4 text-gray-600">Pilihan terbaik dari dapur Smokol untuk Anda</p>
+  <section class="bg-gradient-to-r from-red-50 to-orange-50 py-16 text-center">
+    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Menu Kami</h2>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto px-4">Pilihan terbaik dari dapur Smokol untuk memanjakan lidah Anda</p>
   </section>
 
-  <!-- Menu List -->
-  <section class="py-20 px-4">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-    <!-- Dummy Food Item -->
-    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-      <div class="w-full h-48 bg-gray-100 flex items-center justify-center">
-        <img src="img/makanan1.jpg" alt="Makanan 1" class="max-h-full object-contain">
-      </div>
-      <div class="p-5">
-        <h3 class="font-semibold text-xl mb-1">Nasi Goreng Spesial</h3>
-        <p class="text-sm text-gray-600">Nasi goreng dengan telur, ayam, dan bumbu khas.</p>
+  <!-- Loading State -->
+  <div id="loading" class="text-center py-16">
+    <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-red-600"></div>
+    <p class="mt-4 text-gray-600">Memuat menu...</p>
+  </div>
+
+  <!-- Menu Sections -->
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <!-- All Menu Section -->
+    <div id="all-section" class="category-section">
+      <div id="menu-grid" class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <!-- Menu items will be populated here -->
       </div>
     </div>
 
-    <!-- Repeat -->
-    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-      <div class="w-full h-48 bg-gray-100 flex items-center justify-center">
-        <img src="img/makanan2.jpg" alt="Makanan 2" class="max-h-full object-contain">
+    <!-- Makanan Section -->
+    <div id="makanan-section" class="category-section hidden">
+      <div class="flex items-center mb-8">
+        <h3 class="text-3xl font-bold text-gray-800">🍽️ Makanan</h3>
+        <div class="flex-1 h-px bg-gray-300 ml-4"></div>
       </div>
-      <div class="p-5">
-        <h3 class="font-semibold text-xl mb-1">Bubur Ayam</h3>
-        <p class="text-sm text-gray-600">Bubur ayam lembut, disajikan dengan bawang goreng dan sambal.</p>
-      </div>
-    </div>
-
-    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-      <div class="w-full h-48 bg-gray-100 flex items-center justify-center">
-        <img src="img/makanan3.jpg" alt="Makanan 3" class="max-h-full object-contain">
-      </div>
-      <div class="p-5">
-        <h3 class="font-semibold text-xl mb-1">Soto Ayam</h3>
-        <p class="text-sm text-gray-600">Soto ayam lezat dengan ayam, telur dan bawang goreng.</p>
+      <div id="makanan-grid" class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <!-- Makanan items will be populated here -->
       </div>
     </div>
 
-    <!-- Add more dummy items -->
-    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-      <div class="w-full h-48 bg-gray-100 flex items-center justify-center">
-        <img src="img/minuman1.jpg" alt="Minuman" class="max-h-full object-contain">
+    <!-- Minuman Section -->
+    <div id="minuman-section" class="category-section hidden">
+      <div class="flex items-center mb-8">
+        <h3 class="text-3xl font-bold text-gray-800">🥤 Minuman</h3>
+        <div class="flex-1 h-px bg-gray-300 ml-4"></div>
       </div>
-      <div class="p-5">
-        <h3 class="font-semibold text-xl mb-1">Teh Pucuk</h3>
-        <p class="text-sm text-gray-600">Minuman segar pelepas dahaga favorit semua orang.</p>
+      <div id="minuman-grid" class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <!-- Minuman items will be populated here -->
+      </div>
+    </div>
+
+    <!-- Lainnya Section -->
+    <div id="lainnya-section" class="category-section hidden">
+      <div class="flex items-center mb-8">
+        <h3 class="text-3xl font-bold text-gray-800">🍰 Lainnya</h3>
+        <div class="flex-1 h-px bg-gray-300 ml-4"></div>
+      </div>
+      <div id="lainnya-grid" class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <!-- Lainnya items will be populated here -->
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div id="empty-state" class="text-center py-16 hidden">
+      <div class="text-6xl mb-4">🍽️</div>
+      <h3 class="text-xl font-semibold text-gray-700 mb-2">Belum ada menu</h3>
+      <p class="text-gray-500">Menu untuk kategori ini belum tersedia.</p>
+    </div>
+  </section>
+
+  <!-- Modal Detail Menu -->
+  <div id="menu-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="relative">
+        <button id="close-modal" class="absolute top-4 right-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        
+        <div id="modal-content">
+          <!-- Content will be populated by JavaScript -->
+        </div>
       </div>
     </div>
   </div>
-</section>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-6 text-center">
-    <p>&copy; 2025 Smokol. Semua Hak Dilindungi.</p>
+  <footer class="bg-gray-800 text-white py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h3 class="text-xl font-bold mb-2">🍽️ Smokol</h3>
+      <p class="text-gray-400">&copy; 2025 Smokol. Semua Hak Dilindungi.</p>
+    </div>
   </footer>
 
   <script>
-  const menuButton = document.getElementById('menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
+    // Mobile menu toggle
+    const menuButton = document.getElementById('menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-  menuButton.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-</script>
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Category navigation
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const sections = {
+      'all': document.getElementById('all-section'),
+      'makanan': document.getElementById('makanan-section'),
+      'minuman': document.getElementById('minuman-section'),
+      'lainnya': document.getElementById('lainnya-section')
+    };
+
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.dataset.category;
+        
+        // Update active button
+        categoryButtons.forEach(btn => {
+          btn.classList.remove('bg-red-600', 'text-white');
+          btn.classList.add('text-gray-600', 'hover:text-red-600');
+        });
+        button.classList.add('bg-red-600', 'text-white');
+        button.classList.remove('text-gray-600', 'hover:text-red-600');
+        
+        // Show/hide sections
+        Object.keys(sections).forEach(key => {
+          if (key === category) {
+            sections[key].classList.remove('hidden');
+          } else {
+            sections[key].classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+  <script type="module" src="menu.js"></script>
 
 </body>
 </html>

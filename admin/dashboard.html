@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin - Modern Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Header -->
+  <header class="bg-white shadow-lg border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <div class="flex items-center space-x-3">
+          <i class="fas fa-utensils text-2xl text-red-600"></i>
+          <h1 class="text-2xl font-bold text-gray-900">Dashboard Admin</h1>
+        </div>
+        <button id="logout-btn" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition duration-200 flex items-center space-x-2">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Keluar</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Form Section -->
+    <section class="bg-white rounded-xl shadow-lg p-6 mb-8">
+      <h2 class="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+        <i class="fas fa-plus-circle text-green-600 mr-2"></i>
+        Tambah Menu Baru
+      </h2>
+      
+      <form id="menu-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-4">
+          <div>
+            <label for="kategori" class="block text-sm font-medium text-gray-700 mb-2">Kategori</label>
+            <select id="kategori" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition duration-200">
+              <option value="">Pilih kategori</option>
+              <option value="makanan">🍽️ Makanan</option>
+              <option value="minuman">🥤 Minuman</option>
+              <option value="lainnya">🎯 Lainnya</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">Nama Menu</label>
+            <input type="text" id="nama" placeholder="Nama makanan yang lezat..." required 
+                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition duration-200">
+          </div>
+
+          <div>
+            <label for="image" class="block text-sm font-medium text-gray-700 mb-2">Gambar Menu</label>
+            <div class="flex items-center justify-center w-full">
+              <label for="image" class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 transition duration-200">
+                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                  <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
+                  <p class="text-sm text-gray-500">Klik untuk upload gambar</p>
+                </div>
+                <input id="image" type="file" accept="image/*" class="hidden">
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <label for="deskripsi" class="block text-sm font-medium text-gray-700 mb-2">Deskripsi</label>
+            <textarea id="deskripsi" placeholder="Ceritakan tentang makanan ini..." required 
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition duration-200 h-32 resize-none"></textarea>
+          </div>
+
+          <div class="flex justify-end pt-4">
+            <button id="submit-btn" type="submit" 
+                    class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-medium transition duration-200 flex items-center space-x-2">
+              <i class="fas fa-plus"></i>
+              <span>Tambah Menu</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Menu Categories -->
+    <div class="space-y-8">
+      <!-- Makanan Section -->
+      <section class="bg-white rounded-xl shadow-lg p-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+          <i class="fas fa-utensils text-orange-600 mr-3"></i>
+          Makanan
+          <span id="count-makanan" class="ml-2 bg-orange-100 text-orange-800 text-sm font-medium px-2.5 py-0.5 rounded-full">0</span>
+        </h2>
+        <div id="menu-makanan" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <!-- Menu items will be populated here -->
+        </div>
+      </section>
+
+      <!-- Minuman Section -->
+      <section class="bg-white rounded-xl shadow-lg p-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+          <i class="fas fa-glass-cheers text-blue-600 mr-3"></i>
+          Minuman
+          <span id="count-minuman" class="ml-2 bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded-full">0</span>
+        </h2>
+        <div id="menu-minuman" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <!-- Menu items will be populated here -->
+        </div>
+      </section>
+
+      <!-- Lainnya Section -->
+      <section class="bg-white rounded-xl shadow-lg p-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+          <i class="fas fa-star text-purple-600 mr-3"></i>
+          Lainnya
+          <span id="count-lainnya" class="ml-2 bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded-full">0</span>
+        </h2>
+        <div id="menu-lainnya" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <!-- Menu items will be populated here -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>
