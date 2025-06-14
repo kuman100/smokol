@@ -82,6 +82,75 @@
       </form>
     </section>
 
+    <!-- Edit Kontak -->
+    <section class="bg-white rounded-xl shadow-lg p-6 mb-8 mt-10">
+        <h2 class="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+            <i class="fas fa-address-book text-green-600 mr-2"></i>
+            Edit Kontak Website
+        </h2>
+
+        <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+            <div>
+                <label for="alamat" class="block text-sm font-medium text-gray-700 mb-2">Alamat</label>
+                <input type="text" id="alamat" required class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Masukkan alamat...">
+            </div>
+            <div>
+                <label for="telepon" class="block text-sm font-medium text-gray-700 mb-2">Telepon / WhatsApp</label>
+                <input type="text" id="telepon" required class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="+62 812...">
+            </div>
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="email@example.com">
+            </div>
+            </div>
+
+            <div class="space-y-4">
+            <div>
+                <label for="jam" class="block text-sm font-medium text-gray-700 mb-2">Jam Operasional</label>
+                <input type="text" id="jam" class="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="06.00 - 21.00 WIB">
+            </div>
+            <div>
+                <label for="maps" class="block text-sm font-medium text-gray-700 mb-2">Embed URL Google Maps</label>
+                <textarea id="maps" class="w-full px-4 py-3 border border-gray-300 rounded-lg h-32 resize-none" placeholder="https://www.google.com/maps/embed?..."></textarea>
+            </div>
+
+            <div class="flex justify-end pt-2">
+                <button type="submit" id="update-kontak-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-200">
+                <i class="fas fa-save mr-2"></i>Simpan Kontak
+                </button>
+            </div>
+            </div>
+        </form>
+    </section>
+
+    <!-- Edit Tentang -->
+    <section class="bg-white rounded-xl shadow-lg p-6 mb-8 mt-10">
+      <h2 class="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+        <i class="fas fa-info-circle text-green-600 mr-2"></i>
+        Edit Halaman Tentang
+      </h2>
+      <form id="tentang-form" class="space-y-6">
+        <div>
+          <label for="tentang" class="block text-sm font-medium text-gray-700 mb-2">Tentang Smokol</label>
+          <textarea id="tentang" required class="w-full px-4 py-3 border border-gray-300 rounded-lg h-32 resize-none" placeholder="Deskripsi tentang Smokol..."></textarea>
+        </div>
+        <div>
+          <label for="visi" class="block text-sm font-medium text-gray-700 mb-2">Visi</label>
+          <textarea id="visi" required class="w-full px-4 py-3 border border-gray-300 rounded-lg h-24 resize-none" placeholder="Tulis visi di sini..."></textarea>
+        </div>
+        <div>
+          <label for="misi" class="block text-sm font-medium text-gray-700 mb-2">Misi</label>
+          <textarea id="misi" required class="w-full px-4 py-3 border border-gray-300 rounded-lg h-24 resize-none" placeholder="Tulis misi dipisahkan dengan tanda titik koma (;)"></textarea>
+        </div>
+        <div class="flex justify-end">
+          <button type="submit" id="update-tentang-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-200">
+            <i class="fas fa-save mr-2"></i>Simpan Tentang
+          </button>
+        </div>
+      </form>
+    </section>
+
     <!-- Menu Categories -->
     <div class="space-y-8">
       <!-- Makanan Section -->

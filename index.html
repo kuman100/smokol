@@ -22,16 +22,16 @@
 <body class="bg-white text-gray-800 font-sans">
 
   <!-- Navbar -->
-  <header class="bg-white shadow-md sticky top-0 z-50">
+  <header class="bg-white shadow-lg sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
         <!-- Logo dan Brand -->
         <div class="flex items-center space-x-3 logo-hover">
-          <img src="img/logo.jpeg" alt="Smokol Logo" class="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover shadow-sm">
-          <h1 class="text-xl sm:text-2xl font-bold text-red-600">Smokol</h1>
+          <img src="img/logo.jpeg" alt="Smokol Logo" class="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover shadow-md ring-2 ring-red-100">
+          <h1 class="text-xl sm:text-2xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">Smokol</h1>
         </div>
 
         <!-- Tombol hamburger di mobile -->
-        <button id="menu-button" class="md:hidden text-gray-700 focus:outline-none p-2">
+        <button id="menu-button" class="md:hidden text-gray-700 focus:outline-none p-2 hover:bg-gray-100 rounded-lg transition-colors">
           <svg class="w-6 h-6" fill="none" stroke="currentColor"
               viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round"
@@ -41,20 +41,32 @@
 
         <!-- Menu navigasi (hidden di mobile) -->
         <nav id="nav-links" class="hidden md:flex space-x-8">
-          <a href="index.html" class="text-red-600 font-semibold hover:text-red-700 transition-colors">Beranda</a>
-          <a href="tentang.html" class="text-gray-700 hover:text-red-600 transition-colors">Tentang</a>
-          <a href="menu.html" class="text-gray-700 hover:text-red-600 transition-colors">Menu</a>
-          <a href="kontak.html" class="text-gray-700 hover:text-red-600 transition-colors">Kontak</a>
+          <a href="index.html" class="text-red-600 font-semibold hover:text-red-700 transition-colors relative">
+            Beranda
+            <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-red-600"></span>
+          </a>
+          <a href="tentang.html" class="text-gray-700 hover:text-red-600 transition-colors relative group">
+            Tentang
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
+          </a>
+          <a href="menu.html" class="text-gray-700 hover:text-red-600 transition-colors relative group">
+            Menu
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
+          </a>
+          <a href="kontak.html" class="text-gray-700 hover:text-red-600 transition-colors relative group">
+            Kontak
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
+          </a>
         </nav>
     </div>
 
     <!-- Menu mobile (muncul ketika tombol ditekan) -->
-    <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-t shadow-lg">
         <div class="px-4 py-3 space-y-3">
-          <a href="index.html" class="block text-red-600 font-semibold py-2">Beranda</a>
-          <a href="tentang.html" class="block text-gray-700 hover:text-red-600 py-2 transition-colors">Tentang</a>
-          <a href="menu.html" class="block text-gray-700 hover:text-red-600 py-2 transition-colors">Menu</a>
-          <a href="kontak.html" class="block text-gray-700 hover:text-red-600 py-2 transition-colors">Kontak</a>
+          <a href="index.html" class="block text-red-600 font-semibold py-2 bg-red-50 rounded px-2">Beranda</a>
+          <a href="tentang.html" class="block text-gray-700 hover:text-red-600 py-2 transition-colors hover:bg-red-50 rounded px-2">Tentang</a>
+          <a href="menu.html" class="block text-gray-700 hover:text-red-600 py-2 transition-colors hover:bg-red-50 rounded px-2">Menu</a>
+          <a href="kontak.html" class="block text-gray-700 hover:text-red-600 py-2 transition-colors hover:bg-red-50 rounded px-2">Kontak</a>
         </div>
     </div>
   </header>
@@ -132,22 +144,6 @@
           <h4 class="text-xl font-bold mb-3 text-center text-red-600">Pelayanan Ramah</h4>
           <p class="text-gray-600 text-center leading-relaxed">Kami percaya bahwa pelayanan yang baik adalah kunci kepuasan pelanggan.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="bg-gradient-to-r from-red-600 to-red-700 py-16 text-center text-white">
-    <div class="max-w-4xl mx-auto px-4">
-      <h3 class="text-3xl sm:text-4xl font-bold mb-4">Siap Menikmati Sajian Smokol?</h3>
-      <p class="text-lg sm:text-xl mb-8 text-red-100">Pesan Sekarang!</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="kontak.html" class="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
-          Hubungi Kami
-        </a>
-        <a href="menu.html" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 rounded-full text-lg font-semibold transition-all">
-          Lihat Menu
-        </a>
       </div>
     </div>
   </section>

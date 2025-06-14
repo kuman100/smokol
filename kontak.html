@@ -5,22 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kontak - Smokol</title>
   <meta name="description" content="Hubungi Smokol untuk informasi lebih lanjut mengenai layanan dan menu makanan kami." />
+  <link rel="icon" href="img/logo.jpeg" type="image/jpeg">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link rel="icon" href="img/logo.png" type="image/png" />
+  <link rel="stylesheet" href="kontak.css">
 </head>
 <body class="bg-white text-gray-900 font-sans">
 
   <!-- Navbar -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
+  <header class="bg-white shadow-lg sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
         <!-- Logo dan Brand -->
         <div class="flex items-center space-x-3 logo-hover">
-          <img src="img/logo.jpeg" alt="Smokol Logo" class="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover shadow-sm">
-          <h1 class="text-xl sm:text-2xl font-bold text-red-600">Smokol</h1>
+          <img src="img/logo.jpeg" alt="Smokol Logo" class="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover shadow-md ring-2 ring-red-100">
+          <h1 class="text-xl sm:text-2xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">Smokol</h1>
         </div>
 
         <!-- Tombol hamburger di mobile -->
-        <button id="menu-button" class="md:hidden text-gray-700 focus:outline-none p-2">
+        <button id="menu-button" class="md:hidden text-gray-700 focus:outline-none p-2 hover:bg-gray-100 rounded-lg transition-colors">
           <svg class="w-6 h-6" fill="none" stroke="currentColor"
               viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round"
@@ -30,78 +32,194 @@
 
         <!-- Menu navigasi (hidden di mobile) -->
         <nav id="nav-links" class="hidden md:flex space-x-8">
-          <a href="index.html" class="text-gray-700 hover:text-red-600 transition-colors">Beranda</a>
-          <a href="tentang.html" class="text-gray-700 hover:text-red-600 transition-colors">Tentang</a>
-          <a href="menu.html" class="text-gray-700 hover:text-red-600 transition-colors">Menu</a>
-          <a href="kontak.html" class="text-red-600 font-semibold hover:text-red-700 transition-colors">Kontak</a>
+          <a href="index.html" class="text-gray-700 hover:text-red-600 transition-colors relative group">
+            Beranda
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
+          </a>
+          <a href="tentang.html" class="text-gray-700 hover:text-red-600 transition-colors relative group">
+            Tentang
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
+          </a>
+          <a href="menu.html" class="text-gray-700 hover:text-red-600 transition-colors relative group">
+            Menu
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
+          </a>
+          <a href="kontak.html" class="text-red-600 font-semibold hover:text-red-700 transition-colors relative">
+            Kontak
+            <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-red-600"></span>
+          </a>
         </nav>
     </div>
 
     <!-- Menu mobile (muncul ketika tombol ditekan) -->
-    <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-t shadow-lg">
         <div class="px-4 py-3 space-y-3">
-          <a href="index.html" class="block text-gray-700 hover:text-red-600 py-2 transition-colors">Beranda</a>
-          <a href="tentang.html" class="block text-gray-700 hover:text-red-600 py-2 transition-colors">Tentang</a>
-          <a href="menu.html" class="block text-gray-700 hover:text-red-600 py-2 transition-colors">Menu</a>
-          <a href="kontak.html" class="block text-red-600 font-semibold py-2">Kontak</a>
+          <a href="index.html" class="block text-gray-700 hover:text-red-600 py-2 transition-colors hover:bg-red-50 rounded px-2">Beranda</a>
+          <a href="tentang.html" class="block text-gray-700 hover:text-red-600 py-2 transition-colors hover:bg-red-50 rounded px-2">Tentang</a>
+          <a href="menu.html" class="block text-gray-700 hover:text-red-600 py-2 transition-colors hover:bg-red-50 rounded px-2">Menu</a>
+          <a href="kontak.html" class="block text-red-600 font-semibold py-2 bg-red-50 rounded px-2">Kontak</a>
         </div>
     </div>
   </header>
 
   <!-- Hero Kontak -->
-  <section class="bg-gray-50 py-20 px-6 text-center max-w-4xl mx-auto">
-    <h2 class="text-5xl font-bold mb-3 leading-tight tracking-tight">Kontak Kami</h2>
-    <p class="text-gray-600 text-lg max-w-xl mx-auto">Kami siap melayani dan menjawab pertanyaan Anda dengan cepat dan ramah.</p>
-  </section>
-
-  <!-- Kontak Info dan Peta -->
-  <section class="max-w-7xl mx-auto px-6 pb-20 grid gap-12 md:grid-cols-2">
-
-    <!-- Info Kontak -->
-    <div class="space-y-8">
-      <h3 class="text-3xl font-semibold text-red-600">Informasi Kontak</h3>
-      <ul class="space-y-4 text-gray-700 text-lg">
-        <li>
-          <strong class="block mb-1 text-gray-900">Alamat:</strong>
-          Airmadidi Atas, Kec. Airmadidi, Kabupaten Minahasa Utara, Sulawesi Utara
-        </li>
-        <li>
-          <strong class="block mb-1 text-gray-900">Telepon / WhatsApp:</strong>
-          <a href="https://wa.me/6282346048297" target="_blank" rel="noopener" class="text-red-600 hover:underline transition-colors duration-200">+62 823-4604-8297</a>
-        </li>
-        <li>
-          <strong class="block mb-1 text-gray-900">Email:</strong>
-          <a href="#" class="text-red-600 hover:underline transition-colors duration-200"></a>
-        </li>
-        <li>
-          <strong class="block mb-1 text-gray-900">Jam Operasional:</strong>
-          07.00 - 21.00 WIB (Setiap Hari)
-        </li>
-      </ul>
-
-      <div>
-        <h4 class="text-2xl font-semibold mb-4 text-gray-900">Ikuti Kami</h4>
-        <div class="flex space-x-6 text-red-600 text-xl font-medium">
-          <a href="#" aria-label="Instagram" class="hover:text-red-800 transition-colors duration-200">Instagram</a>
-          <a href="#" aria-label="Facebook" class="hover:text-red-800 transition-colors duration-200">Facebook</a>
-          <a href="#" aria-label="TikTok" class="hover:text-red-800 transition-colors duration-200">TikTok</a>
+  <section class="hero-contact relative overflow-hidden">
+    <div class="hero-background"></div>
+    <div class="hero-overlay"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-6 py-32 text-center">
+      <div class="hero-content">
+        <div class="hero-icon mb-8">
+          <div class="contact-icon-wrapper">
+            <svg class="w-16 h-16 text-white mx-auto" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+            </svg>
+          </div>
+        </div>
+        <h2 class="text-6xl md:text-7xl font-bold mb-6 text-white leading-tight tracking-tight hero-title">
+          Hubungi Kami
+        </h2>
+        <p class="text-gray-200 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed hero-subtitle">
+          Kami siap melayani dan menjawab pertanyaan Anda dengan cepat dan ramah
+        </p>
+        <div class="mt-12">
+          <div class="inline-flex items-center bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-6 py-3 text-white">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+            </svg>
+            <span class="text-sm font-medium">Siap Melayani 24/7</span>
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- Peta Google -->
-    <div class="rounded-lg overflow-hidden shadow-lg h-80 md:h-auto">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.581755977199!2d124.98049083203561!3d1.4265291520468903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32870ec26bd7f7ef%3A0x3fc0764f48590551!2sOrient%20Design%20Grafik!5e0!3m2!1sid!2sid!4v1749442119106!5m2!1sid!2sid"
-        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+    <div class="hero-particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
     </div>
+  </section>
 
+  <!-- Kontak Info dan Peta -->
+  <section class="contact-section relative py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid gap-16 lg:grid-cols-2 items-start">
+        <!-- Info Kontak -->
+        <div class="contact-info-card">
+          <div class="card-header mb-12">
+            <h3 class="text-4xl font-bold text-gray-800 mb-4">Informasi Kontak</h3>
+            <div class="header-line"></div>
+            <p class="text-gray-600 text-lg mt-4">Jangan ragu untuk menghubungi kami kapan saja</p>
+          </div>
+          
+          <div class="contact-items space-y-8">
+            <div class="contact-item">
+              <div class="contact-icon-bg">
+                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <div class="contact-content">
+                <h4 class="contact-label">Alamat</h4>
+                <p id="alamat" class="contact-value">Jl. Contoh No. 123, Manado, Sulawesi Utara</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon-bg">
+                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                </svg>
+              </div>
+              <div class="contact-content">
+                <h4 class="contact-label">Telepon / WhatsApp</h4>
+                <a id="telepon" href="#" target="_blank" class="contact-value contact-link">+62 812-3456-7890</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon-bg">
+                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                </svg>
+              </div>
+              <div class="contact-content">
+                <h4 class="contact-label">Email</h4>
+                <a id="email" href="mailto:info@smokol.com" class="contact-value contact-link">info@smokol.com</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon-bg">
+                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <div class="contact-content">
+                <h4 class="contact-label">Jam Operasional</h4>
+                <div id="jam" class="contact-value">
+                  <p>Senin - Jumat: 08:00 - 22:00</p>
+                  <p>Sabtu - Minggu: 09:00 - 23:00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="mt-12 pt-8 border-t border-gray-200">
+            <h4 class="text-xl font-semibold text-gray-800 mb-6">Hubungi Sekarang</h4>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="https://wa.me/6282346048297" class="quick-action-btn whatsapp-btn">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.306"/>
+                </svg>
+                WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Maps -->
+        <div class="map-container">
+          <div class="map-header mb-6">
+            <h3 class="text-2xl font-bold text-gray-800">Lokasi Kami</h3>
+            <p class="text-gray-600 mt-2">Temukan kami di peta</p>
+          </div>
+          <div class="map-wrapper">
+            <iframe 
+              id="maps" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.817267894378!2d124.84510871475393!3d1.4890117620743707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMjknMjAuNCJOIDEyNMKwNTAnNTIuOCJF!5e0!3m2!1sen!2sid!4v1639000000000!5m2!1sen!2sid">
+            </iframe>
+            <div class="map-overlay">
+              <div class="map-pin">
+                <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-8 text-center text-sm">
-    <p>&copy; 2025 Smokol. Semua Hak Dilindungi.</p>
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col sm:flex-row items-center justify-between">
+        <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+          <img src="img/logo.jpeg" alt="Smokol Logo" class="h-8 w-8 rounded-full object-cover">
+          <span class="text-xl font-bold">Smokol</span>
+        </div>
+        <p class="text-gray-400 text-center">&copy; 2025 Smokol. Semua Hak Dilindungi.</p>
+      </div>
+    </div>
   </footer>
 
   <script>
@@ -111,7 +229,9 @@
   menuButton.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
   });
+  
 </script>
+<script src="kontak.js" type="module"></script>
 
 </body>
 </html>

@@ -6,6 +6,7 @@ import {
 import {
   getAuth, onAuthStateChanged, signOut
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 // === Firebase Config ===
 const firebaseConfig = {
@@ -22,6 +23,8 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 const menuRef = collection(db, "menu");
+const kontakRef = doc(db, "pengaturan", "kontak");
+const tentangRef = doc(db, "pengaturan", "tentang");
 
 // === Proteksi Akses Halaman Admin ===
 onAuthStateChanged(auth, async (user) => {
@@ -103,6 +106,78 @@ document.getElementById("menu-form").addEventListener("submit", async (e) => {
     submitBtn.disabled = false;
   }
 });
+
+async function loadContactInfo() {
+  try {
+    const docSnap = await getDoc(kontakRef);
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      document.getElementById("alamat").value = data.alamat || "";
+      document.getElementById("telepon").value = data.telepon || "";
+      document.getElementById("email").value = data.email || "";
+      document.getElementById("jam").value = data.jam || "";
+      document.getElementById("maps").value = data.maps || "";
+    }
+  } catch (error) {
+    console.error("Gagal mengambil data kontak:", error);
+  }
+}
+loadContactInfo();
+
+// === Update Data Kontak ===
+document.getElementById("contact-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const data = {
+    alamat: document.getElementById("alamat").value.trim(),
+    telepon: document.getElementById("telepon").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    jam: document.getElementById("jam").value.trim(),
+    maps: document.getElementById("maps").value.trim(),
+  };
+
+  try {
+    await setDoc(kontakRef, data);
+    showNotification("Kontak berhasil diperbarui!", "success");
+  } catch (error) {
+    console.error("Gagal update kontak:", error);
+    showNotification("Terjadi kesalahan saat memperbarui kontak.", "error");
+  }
+});
+
+// === Edit Tentang ===
+async function loadTentangInfo() {
+  try {
+    const docSnap = await getDoc(tentangRef);
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      document.getElementById("tentang").value = data.tentang || "";
+      document.getElementById("visi").value = data.visi || "";
+      document.getElementById("misi").value = (data.misi || []).join("; ");
+    }
+  } catch (error) {
+    console.error("Gagal mengambil data tentang:", error);
+  }
+}
+loadTentangInfo();
+
+document.getElementById("tentang-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const tentang = document.getElementById("tentang").value.trim();
+  const visi = document.getElementById("visi").value.trim();
+  const misiText = document.getElementById("misi").value.trim();
+  const misi = misiText.split(";").map(m => m.trim()).filter(m => m);
+
+  try {
+    await setDoc(tentangRef, { tentang, visi, misi });
+    showNotification("Halaman Tentang berhasil diperbarui!", "success");
+  } catch (error) {
+    console.error("Gagal update tentang:", error);
+    showNotification("Terjadi kesalahan saat memperbarui tentang.", "error");
+  }
+});
+
 
 // === Menampilkan Data Menu ===
 const menuMakanan = document.getElementById("menu-makanan");

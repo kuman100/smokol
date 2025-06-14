@@ -5,21 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tentang Kami - Smokol</title>
   <meta name="description" content="Pelajari lebih lanjut tentang Smokol, rumah makan lokal yang menyajikan makanan rumahan terbaik.">
+  <link rel="icon" href="img/logo.jpeg" type="image/jpeg">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-white text-gray-800 font-sans">
 
   <!-- Navbar -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
+  <header class="bg-white shadow-lg sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
         <!-- Logo dan Brand -->
         <div class="flex items-center space-x-3 logo-hover">
-          <img src="img/logo.jpeg" alt="Smokol Logo" class="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover shadow-sm">
-          <h1 class="text-xl sm:text-2xl font-bold text-red-600">Smokol</h1>
+          <img src="img/logo.jpeg" alt="Smokol Logo" class="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover shadow-md ring-2 ring-red-100">
+          <h1 class="text-xl sm:text-2xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">Smokol</h1>
         </div>
 
         <!-- Tombol hamburger di mobile -->
-        <button id="menu-button" class="md:hidden text-gray-700 focus:outline-none p-2">
+        <button id="menu-button" class="md:hidden text-gray-700 focus:outline-none p-2 hover:bg-gray-100 rounded-lg transition-colors">
           <svg class="w-6 h-6" fill="none" stroke="currentColor"
               viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round"
@@ -29,57 +30,128 @@
 
         <!-- Menu navigasi (hidden di mobile) -->
         <nav id="nav-links" class="hidden md:flex space-x-8">
-          <a href="index.html" class="text-gray-700 hover:text-red-600 transition-colors">Beranda</a>
-          <a href="tentang.html" class="text-red-600 font-semibold hover:text-red-700 transition-colors">Tentang</a>
-          <a href="menu.html" class="text-gray-700 hover:text-red-600 transition-colors">Menu</a>
-          <a href="kontak.html" class="text-gray-700 hover:text-red-600 transition-colors">Kontak</a>
+          <a href="index.html" class="text-gray-700 hover:text-red-600 transition-colors relative group">
+            Beranda
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
+          </a>
+          <a href="tentang.html" class="text-red-600 font-semibold hover:text-red-700 transition-colors relative">
+            Tentang
+            <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-red-600"></span>
+          </a>
+          <a href="menu.html" class="text-gray-700 hover:text-red-600 transition-colors relative group">
+            Menu
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
+          </a>
+          <a href="kontak.html" class="text-gray-700 hover:text-red-600 transition-colors relative group">
+            Kontak
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
+          </a>
         </nav>
     </div>
 
     <!-- Menu mobile (muncul ketika tombol ditekan) -->
-    <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-t shadow-lg">
         <div class="px-4 py-3 space-y-3">
-          <a href="index.html" class="block text-gray-700 hover:text-red-600 py-2 transition-colors">Beranda</a>
-          <a href="tentang.html" class="block text-red-600 font-semibold py-2">Tentang</a>
-          <a href="menu.html" class="block text-gray-700 hover:text-red-600 py-2 transition-colors">Menu</a>
-          <a href="kontak.html" class="block text-gray-700 hover:text-red-600 py-2 transition-colors">Kontak</a>
+          <a href="index.html" class="block text-gray-700 hover:text-red-600 py-2 transition-colors hover:bg-red-50 rounded px-2">Beranda</a>
+          <a href="tentang.html" class="block text-red-600 font-semibold py-2 bg-red-50 rounded px-2">Tentang</a>
+          <a href="menu.html" class="block text-gray-700 hover:text-red-600 py-2 transition-colors hover:bg-red-50 rounded px-2">Menu</a>
+          <a href="kontak.html" class="block text-gray-700 hover:text-red-600 py-2 transition-colors hover:bg-red-50 rounded px-2">Kontak</a>
         </div>
     </div>
   </header>
 
   <!-- Tentang Kami -->
-  <section class="bg-gray-100 py-20 px-4">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-6">Tentang Smokol</h2>
-      <p class="text-gray-700 text-lg leading-relaxed">
-        Smokol menyajikan makanan khas rumahan dengan cita rasa autentik dan harga terjangkau. Berdiri sejak 2025, kami berkomitmen memberikan pengalaman makan terbaik bagi pelanggan kami dengan pelayanan ramah dan suasana nyaman.
-      </p>
+  <section class="gradient-bg py-20 px-4 relative overflow-hidden">
+    <!-- Decorative Elements -->
+    <div class="absolute top-10 left-10 w-20 h-20 bg-red-200 rounded-full opacity-50 floating-animation"></div>
+    <div class="absolute bottom-10 right-10 w-32 h-32 bg-red-100 rounded-full opacity-30 floating-animation" style="animation-delay: -3s;"></div>
+    <div class="absolute top-1/2 left-5 w-16 h-16 bg-red-300 rounded-full opacity-40 floating-animation" style="animation-delay: -1s;"></div>
+    
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+      <div class="mb-8">
+        <i class="fas fa-utensils text-6xl text-red-500 mb-6 floating-animation"></i>
+      </div>
+      <h2 class="text-5xl md:text-6xl font-bold mb-8 text-gradient">Tentang Smokol</h2>
+      <div class="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 card-hover border-2 pulse-border">
+        <div class="flex justify-center mb-6">
+          <div class="bg-red-100 p-4 rounded-full">
+            <i class="fas fa-heart text-3xl text-red-500"></i>
+          </div>
+        </div>
+        <p id="tentang-kami" class="text-gray-700 text-lg md:text-xl leading-relaxed font-medium">
+          <!-- Konten akan diisi oleh JS -->
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- Visi Misi -->
-  <section class="py-16 px-4">
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
-      <div>
-        <h3 class="text-2xl font-bold mb-4 text-red-600">Visi</h3>
-        <p class="text-gray-700 leading-relaxed">
-          Menjadi rumah makan favorit keluarga Indonesia yang dikenal karena rasa, kualitas, dan keramahan.
-        </p>
+  <section class="py-20 px-4 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-gradient mb-4">Visi & Misi Kami</h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto rounded-full"></div>
+        <p class="text-gray-600 text-lg mt-6 max-w-2xl mx-auto">Komitmen kami dalam memberikan yang terbaik untuk setiap pelanggan</p>
       </div>
-      <div>
-        <h3 class="text-2xl font-bold mb-4 text-red-600">Misi</h3>
-        <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-2">
-          <li>Menggunakan bahan segar dan berkualitas</li>
-          <li>Melayani dengan sepenuh hati</li>
-          <li>Menjaga cita rasa lokal dan kebersihan</li>
-        </ul>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <!-- Visi Card -->
+        <div class="slide-in-left">
+          <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-10 card-hover border-l-8 border-red-500 relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-full -mr-16 -mt-16 opacity-50"></div>
+            <div class="absolute bottom-0 left-0 w-24 h-24 bg-red-100 rounded-full -ml-12 -mb-12 opacity-30"></div>
+            
+            <div class="relative z-10">
+              <div class="flex items-center mb-6">
+                <div class="bg-gradient-to-r from-red-500 to-red-600 p-4 rounded-2xl mr-4 floating-animation">
+                  <i class="fas fa-eye text-2xl text-white"></i>
+                </div>
+                <h3 class="text-3xl font-bold text-gradient">Visi</h3>
+              </div>
+              <div class="bg-red-50 rounded-2xl p-6 border-l-4 border-red-400">
+                <p id="visi" class="text-gray-700 leading-relaxed text-lg font-medium"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Misi Card -->
+        <div class="slide-in-right">
+          <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-10 card-hover border-l-8 border-red-600 relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute top-0 left-0 w-28 h-28 bg-red-50 rounded-full -ml-14 -mt-14 opacity-40"></div>
+            <div class="absolute bottom-0 right-0 w-36 h-36 bg-red-100 rounded-full -mr-18 -mb-18 opacity-20"></div>
+            
+            <div class="relative z-10">
+              <div class="flex items-center mb-6">
+                <div class="bg-gradient-to-r from-red-600 to-red-700 p-4 rounded-2xl mr-4 floating-animation" style="animation-delay: -2s;">
+                  <i class="fas fa-target text-2xl text-white"></i>
+                </div>
+                <h3 class="text-3xl font-bold text-gradient">Misi</h3>
+              </div>
+              <div class="bg-red-50 rounded-2xl p-6 border-l-4 border-red-500">
+                <ul id="misi" class="space-y-4 text-gray-700 leading-relaxed text-lg"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-6 text-center">
-    <p>&copy; 2025 Smokol. Semua Hak Dilindungi.</p>
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col sm:flex-row items-center justify-between">
+        <div class="flex items-center space-x-3 mb-4 sm:mb-0">
+          <img src="img/logo.jpeg" alt="Smokol Logo" class="h-8 w-8 rounded-full object-cover">
+          <span class="text-xl font-bold">Smokol</span>
+        </div>
+        <p class="text-gray-400 text-center">&copy; 2025 Smokol. Semua Hak Dilindungi.</p>
+      </div>
+    </div>
   </footer>
     <script>
     const menuButton = document.getElementById('menu-button');
@@ -89,5 +161,6 @@
         mobileMenu.classList.toggle('hidden');
     });
     </script>
+    <script type="module" src="tentang.js"></script>
 </body>
 </html>
